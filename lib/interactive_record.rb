@@ -58,7 +58,7 @@ def initialize(options={})
       key = attribute_hash.keys.first
       new_value = value.class == Fixnum ? value : "'#{value}'"
       sql = "SELECT * FROM #{self.table_name} WHERE #{key} == #{new_value}"
-      db[:conn].execute(sql)
+      DB[:conn].execute(sql)
     end
 
 
