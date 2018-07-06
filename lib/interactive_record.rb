@@ -53,7 +53,13 @@ def initialize(options={})
       DB[:conn].execute(sql)
     end
 
-
+    def self.find_by(attribute_hash)
+      value = attribute_hash.values.first
+      key = attribute_hash.keys.first
+      new_value = value.class == Fixnum ? value : "'#{value}'"
+      sql = "SELECT * FROM #{self.table_name} WHERE #{key} == #{new_value}"
+      db[:conn].execute(sql)
+    end
 
 
 
