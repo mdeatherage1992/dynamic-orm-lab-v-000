@@ -23,7 +23,7 @@ end
 
 def initialize(options={})
   options.each do |property, value|
-    if property != "id"
+    if "#{property}" != "id"
       self.send("#{property}=", value)
     end
   end
