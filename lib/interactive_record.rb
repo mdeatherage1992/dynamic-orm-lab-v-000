@@ -28,6 +28,7 @@ def initialize(options={})
   end
 
   self.column_names.each do |col_name|
+    if col_name != 'id'
    attr_accessor col_name.to_sym
  end
 
