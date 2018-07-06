@@ -24,10 +24,11 @@ end
 def initialize(options={})
   options.each do |property, value|
     if property != "id"
-    self.send("#{property}=", value)
+      self.send("#{property}=", value)
+    end
   end
 end
-end
+
 
 def save
     sql = "INSERT INTO #{table_name_for_insert} (#{col_names_for_insert}) VALUES (#{values_for_insert})"
